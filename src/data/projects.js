@@ -54,8 +54,8 @@ export const projects = [
     title: "Weather App",
     description:
       "A weather web application that allows users to check the current weather by searching for a specific city.",
-    link: "https://rafiframadhana.github.io/Weather-App/",
-    github: "https://github.com/rafiframadhana/Weather-App",
+    link: "https://rafiframadhana.github.io/weather-app/",
+    github: "https://github.com/rafiframadhana/weather-app",
     techStack: [
       { name: "Javascript", icon: js },
       { name: "HTML", icon: html },
@@ -123,8 +123,8 @@ export const projects = [
     title: "Calculator",
     description:
       "A simple calculator that supports basic arithmetic operations.",
-    link: "https://rafiframadhana.github.io/Calculator/",
-    github: "https://github.com/rafiframadhana/Calculator",
+    link: "https://rafiframadhana.github.io/calculator/",
+    github: "https://github.com/rafiframadhana/calculator",
     techStack: [
       { name: "Javascript", icon: js },
       { name: "HTML", icon: html },
@@ -136,8 +136,8 @@ export const projects = [
     title: "To do List",
     description:
       "A to-do list application that allows users to add, edit, and delete tasks.",
-    link: "https://rafiframadhana.github.io/To-do-List/",
-    github: "https://github.com/rafiframadhana/To-do-List",
+    link: "https://rafiframadhana.github.io/to-do-list/",
+    github: "https://github.com/rafiframadhana/to-do-list",
     techStack: [
       { name: "Javascript", icon: js },
       { name: "HTML", icon: html },
@@ -149,8 +149,8 @@ export const projects = [
     title: "Rock Paper Scissors",
     description:
       "A classic Rock, Paper, Scissors game where users can play against the computer.",
-    link: "https://rafiframadhana.github.io/Rock-Paper-Scissors-Game/",
-    github: "https://github.com/rafiframadhana/Rock-Paper-Scissors-Game",
+    link: "https://rafiframadhana.github.io/rock-paper-scissors-game/",
+    github: "https://github.com/rafiframadhana/rock-paper-scissors-game",
     techStack: [
       { name: "Javascript", icon: js },
       { name: "HTML", icon: html },
@@ -162,8 +162,8 @@ export const projects = [
     title: "Password Generator",
     description:
       "Generates customizable random passwords with options for length and character types.",
-    link: "https://rafiframadhana.github.io/Password-Generator/",
-    github: "https://github.com/rafiframadhana/Password-Generator",
+    link: "https://rafiframadhana.github.io/basic-password-generator/",
+    github: "https://github.com/rafiframadhana/basic-password-generator",
     techStack: [
       { name: "Javascript", icon: js },
       { name: "HTML", icon: html },
@@ -175,8 +175,8 @@ export const projects = [
     title: "Temperature Conversion",
     description:
       "Converts temperatures between Celsius, Fahrenheit, and Kelvin.",
-    link: "https://rafiframadhana.github.io/Temperature-conversion/",
-    github: "https://github.com/rafiframadhana/Temperature-conversion",
+    link: "https://rafiframadhana.github.io/temperature-conversion/",
+    github: "https://github.com/rafiframadhana/temperature-conversion",
     techStack: [
       { name: "Javascript", icon: js },
       { name: "HTML", icon: html },
@@ -188,8 +188,8 @@ export const projects = [
     title: "Dice Roller Game",
     description:
       "Simulates rolling one or more dice and displays the results visually.",
-    link: "https://rafiframadhana.github.io/Dice-Roller-Game/",
-    github: "https://github.com/rafiframadhana/Dice-Roller-Game",
+    link: "https://rafiframadhana.github.io/dice-roller-game/",
+    github: "https://github.com/rafiframadhana/dice-roller-game",
     techStack: [
       { name: "Javascript", icon: js },
       { name: "HTML", icon: html },
@@ -201,8 +201,8 @@ export const projects = [
     title: "Stopwatch",
     description:
       "A minimalist stopwatch with start, stop, and reset functions, with a modern UI.",
-    link: "https://rafiframadhana.github.io/Stopwatch/",
-    github: "https://github.com/rafiframadhana/Stopwatch",
+    link: "https://rafiframadhana.github.io/stopwatch/",
+    github: "https://github.com/rafiframadhana/stopwatch",
     techStack: [
       { name: "Javascript", icon: js },
       { name: "HTML", icon: html },
@@ -214,8 +214,8 @@ export const projects = [
     title: "Number Guessing Game",
     description:
       "A game where the player guesses a randomly generated number.",
-    link: "https://rafiframadhana.github.io/Number-Guessing-Game/",
-    github: "https://github.com/rafiframadhana/Number-Guessing-Game",
+    link: "https://rafiframadhana.github.io/number-guessing-game/",
+    github: "https://github.com/rafiframadhana/number-guessing-game",
     techStack: [
       { name: "Javascript", icon: js },
       { name: "HTML", icon: html },
