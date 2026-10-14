@@ -1,17 +1,20 @@
 import "./App.css";
 import Navbar from "./components/Navbar.jsx";
+import Sidebar from "./components/Sidebar.jsx";
 import Footer from "./components/Footer.jsx";
 import Projects from "./components/Projects.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 
 function App() {
   return (
-    
-    <div className="app-container">
+    <div className="page" id="top">
       <Navbar />
-      <main className="main-content">
-        <Projects />
-      </main>
+      <div className="layout">
+        <Sidebar />
+        <main className="main-content">
+          <Projects />
+        </main>
+      </div>
       <Footer />
       <ScrollToTop />
     </div>
