@@ -1,4 +1,4 @@
-# Mini Projects Collection
+# Old Projects Collection
 
 This repository is a collection of mini web projects built with React. It serves as a showcase of various UI components, layouts, and interactive features. The projects demonstrate responsive design, component-based architecture, and modern styling techniques using CSS and styled-components.
 
