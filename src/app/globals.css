@@ -510,13 +510,27 @@ hr {
   color: var(--navy);
 }
 
-.detail-body p + .detail-heading {
-  margin-top: 16px;
+/* Text written in Payload, rendered from Markdown */
+.markdown > * + * {
+  margin-top: 10px;
 }
 
-.detail-features {
+.markdown ul,
+.markdown ol {
   padding-left: 22px;
+}
+
+.markdown ul {
   list-style: square;
+}
+
+.markdown p:has(> strong:only-child) {
+  margin-top: 16px;
+  color: var(--navy);
+}
+
+.markdown p:has(> strong:only-child) + ul {
+  margin-top: 4px;
 }
 
 .detail-info {

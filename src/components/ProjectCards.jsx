@@ -3,6 +3,7 @@ import Link from "next/link";
 
 export default function ProjectCard({ project, isNew }) {
   const detailHref = `/projects/${project.slug}`;
+  const image = project.images[0];
 
   return (
     <li id={project.slug} className={isNew ? "project project--new" : "project"}>
@@ -12,12 +13,16 @@ export default function ProjectCard({ project, isNew }) {
         tabIndex={-1}
         aria-hidden="true"
       >
-        <Image
-          src={project.img}
-          alt=""
-          sizes="(max-width: 720px) 320px, 200px"
-          priority={isNew}
-        />
+        {image && (
+          <Image
+            src={image.url}
+            alt=""
+            width={image.width}
+            height={image.height}
+            sizes="(max-width: 720px) 320px, 200px"
+            priority={isNew}
+          />
+        )}
       </Link>
 
       <div className="project-text">
@@ -30,15 +35,28 @@ export default function ProjectCard({ project, isNew }) {
           <b>Built with:</b> {project.stack.join(", ")}
         </p>
         <p className="project-links">
-          [{" "}
-          <a href={project.link} target="_blank" rel="noopener noreferrer">
-            Live site
-          </a>{" "}
-          ] [{" "}
-          <a href={project.github} target="_blank" rel="noopener noreferrer">
-            Source code
-          </a>{" "}
-          ]
+          {project.liveUrl && (
+            <>
+              [{" "}
+              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                Live site
+              </a>{" "}
+              ]{" "}
+            </>
+          )}
+          {project.githubUrl && (
+            <>
+              [{" "}
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Source code
+              </a>{" "}
+              ]
+            </>
+          )}
         </p>
       </div>
     </li>

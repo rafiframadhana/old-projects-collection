@@ -1,5 +1,5 @@
 import "./globals.css";
-import { getProjects } from "@/lib/projects.js";
+import { getProjects } from "@/lib/repositories/projects.js";
 import { BrowserTop, StatusBar } from "@/components/BrowserChrome.jsx";
 import Navbar from "@/components/Navbar.jsx";
 import Sidebar from "@/components/Sidebar.jsx";
@@ -25,7 +25,7 @@ export default async function RootLayout({ children }) {
         <div className="window" id="top">
           <BrowserTop />
           <div className="page">
-            <Navbar projectCount={projects.length} />
+            <Navbar projects={projects} />
             <div className="layout">
               <Sidebar projects={projects} />
               <main className="main-content">{children}</main>

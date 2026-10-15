@@ -1,6 +1,11 @@
 import Link from "next/link";
 
-const Navbar = ({ projectCount }) => {
+const Navbar = ({ projects }) => {
+  const newTitles = projects
+    .slice(0, 2)
+    .map((project) => project.title)
+    .join(" and ");
+
   return (
     <header className="banner">
       <div className="banner-title">
@@ -12,8 +17,8 @@ const Navbar = ({ projectCount }) => {
 
       <div className="marquee" aria-label="Site news">
         <p className="marquee-track">
-          Welcome to my old projects collection! There are {projectCount}{" "}
-          projects online. New this update: Amazon Clone and Clothing Store.
+          Welcome to my old projects collection! There are {projects.length}{" "}
+          projects online. New this update: {newTitles}.
           Click any picture to see the project details.
         </p>
       </div>

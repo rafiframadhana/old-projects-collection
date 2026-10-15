@@ -1,7 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 export default function ProjectDetail({ project, previous, next }) {
+  const image = project.images[0];
+  const screenshot = image && (
+    <Image
+      src={image.url}
+      alt={`Screenshot of ${project.title}`}
+      width={image.width}
+      height={image.height}
+      sizes="(max-width: 720px) 100vw, 640px"
+      priority
+    />
+  );
+
   return (
     <article className="content detail">
       <p className="breadcrumb">
@@ -12,31 +26,28 @@ export default function ProjectDetail({ project, previous, next }) {
       <h2 className="content-heading">{project.title}</h2>
       <p className="content-intro">{project.description}</p>
 
-      <a
-        href={project.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="project-thumb detail-shot"
-      >
-        <Image
-          src={project.img}
-          alt={`Screenshot of ${project.title}`}
-          sizes="(max-width: 720px) 100vw, 640px"
-          priority
-        />
-      </a>
+      {screenshot &&
+        (project.liveUrl ? (
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project-thumb detail-shot"
+          >
+            {screenshot}
+          </a>
+        ) : (
+          <div className="project-thumb detail-shot">{screenshot}</div>
+        ))}
 
       <div className="detail-columns">
         <div className="detail-body">
           <h3 className="detail-heading">About this project</h3>
-          <p>{project.about}</p>
-
-          <h3 className="detail-heading">Features</h3>
-          <ul className="detail-features">
-            {project.features.map((feature) => (
-              <li key={feature}>{feature}</li>
-            ))}
-          </ul>
+          <div className="markdown">
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              {project.fullDescription || project.description}
+            </ReactMarkdown>
+          </div>
         </div>
 
         <aside className="side-box detail-info">
@@ -44,22 +55,34 @@ export default function ProjectDetail({ project, previous, next }) {
           <dl>
             <dt>Built with</dt>
             <dd>{project.stack.join(", ")}</dd>
-            <dt>Live site</dt>
-            <dd>
-              <a href={project.link} target="_blank" rel="noopener noreferrer">
-                Open the live site
-              </a>
-            </dd>
-            <dt>Source code</dt>
-            <dd>
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View on GitHub
-              </a>
-            </dd>
+            {project.liveUrl && (
+              <>
+                <dt>Live site</dt>
+                <dd>
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Open the live site
+                  </a>
+                </dd>
+              </>
+            )}
+            {project.githubUrl && (
+              <>
+                <dt>Source code</dt>
+                <dd>
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View on GitHub
+                  </a>
+                </dd>
+              </>
+            )}
           </dl>
         </aside>
       </div>
