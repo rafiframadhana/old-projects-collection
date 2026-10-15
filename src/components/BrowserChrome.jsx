@@ -1,5 +1,4 @@
-import React from "react";
-import { projects } from "./../data/projects.js";
+import AddressBar from "./AddressBar.jsx";
 
 const menus = ["File", "Edit", "View", "Favorites", "Tools", "Help"];
 
@@ -27,19 +26,16 @@ export function BrowserTop() {
         ))}
       </div>
 
-      <div className="addressbar">
-        <span className="addressbar-label">Address</span>
-        <span className="addressbar-field">{window.location.href}</span>
-      </div>
+      <AddressBar />
     </div>
   );
 }
 
-export function StatusBar() {
+export function StatusBar({ projectCount }) {
   return (
     <div className="statusbar">
       <span className="statusbar-cell statusbar-main">
-        Done. {projects.length} projects loaded.
+        Done. {projectCount} projects loaded.
       </span>
       <span className="statusbar-cell statusbar-zone">Internet</span>
     </div>

@@ -2,7 +2,7 @@ import React from "react";
 
 const badges = [
   { label: "React", sub: "made with", href: "https://react.dev" },
-  { label: "Vite", sub: "built with", href: "https://vite.dev" },
+  { label: "Next.js", sub: "built with", href: "https://nextjs.org" },
   {
     label: "GitHub",
     sub: "code on",

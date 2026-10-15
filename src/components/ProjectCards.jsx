@@ -1,6 +1,9 @@
-import React from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function ProjectCard({ project, isNew }) {
+  const detailHref = `/projects/${project.slug}`;
+
   return (
     <li id={project.slug} className={isNew ? "project project--new" : "project"}>
       <a
@@ -11,18 +14,17 @@ export default function ProjectCard({ project, isNew }) {
         tabIndex={-1}
         aria-hidden="true"
       >
-        <img
+        <Image
           src={project.img}
           alt=""
-          width="200"
-          height="109"
-          loading={isNew ? "eager" : "lazy"}
+          sizes="(max-width: 720px) 320px, 200px"
+          priority={isNew}
         />
       </a>
 
       <div className="project-text">
         <h3 className="project-title">
-          {project.title}
+          <Link href={detailHref}>{project.title}</Link>
           {isNew && <span className="new-tag">NEW!</span>}
         </h3>
         <p>{project.description}</p>
@@ -30,7 +32,7 @@ export default function ProjectCard({ project, isNew }) {
           <b>Built with:</b> {project.stack.join(", ")}
         </p>
         <p className="project-links">
-          [{" "}
+          [ <Link href={detailHref}>Details</Link> ] [{" "}
           <a href={project.link} target="_blank" rel="noopener noreferrer">
             Live site
           </a>{" "}

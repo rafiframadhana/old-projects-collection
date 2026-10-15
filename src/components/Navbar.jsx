@@ -1,19 +1,18 @@
-import React from "react";
-import { projects } from "./../data/projects.js";
+import Link from "next/link";
 
-const Navbar = () => {
+const Navbar = ({ projectCount }) => {
   return (
     <header className="banner">
       <div className="banner-title">
         <h1>
-          <a href="/">Old Projects Collection</a>
+          <Link href="/">Old Projects Collection</Link>
         </h1>
         <p>The homepage of Rafif Ramadhana</p>
       </div>
 
       <div className="marquee" aria-label="Site news">
         <p className="marquee-track">
-          Welcome to my old projects collection! There are {projects.length}{" "}
+          Welcome to my old projects collection! There are {projectCount}{" "}
           projects online. New this update: Amazon Clone and Clothing Store.
           Click any picture to open the live site.
         </p>

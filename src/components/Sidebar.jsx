@@ -1,7 +1,6 @@
-import React from "react";
-import { projects } from "./../data/projects.js";
+import Link from "next/link";
 
-const Sidebar = () => {
+const Sidebar = ({ projects }) => {
   const digits = String(projects.length).padStart(6, "0").split("");
 
   return (
@@ -12,7 +11,7 @@ const Sidebar = () => {
         </h2>
         <ul className="side-buttons">
           <li>
-            <a href="#projects">Projects</a>
+            <Link href="/#projects">Projects</Link>
           </li>
           <li>
             <a
@@ -42,7 +41,7 @@ const Sidebar = () => {
         <ul className="side-index">
           {projects.map((project) => (
             <li key={project.slug}>
-              <a href={`#${project.slug}`}>{project.title}</a>
+              <Link href={`/projects/${project.slug}`}>{project.title}</Link>
             </li>
           ))}
         </ul>

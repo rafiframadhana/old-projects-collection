@@ -328,7 +328,8 @@ hr {
   cursor: pointer;
 }
 
-.side-buttons a:visited {
+.side-buttons a:visited,
+.bevel-button:visited {
   color: var(--black);
 }
 
@@ -445,6 +446,17 @@ hr {
   margin-bottom: 4px;
 }
 
+.project-title a,
+.project-title a:visited {
+  color: var(--navy);
+  text-decoration: none;
+}
+
+.project-title a:hover {
+  color: var(--red);
+  text-decoration: underline;
+}
+
 .new-tag {
   margin-left: 8px;
   font-family: var(--sans);
@@ -461,6 +473,86 @@ hr {
 
 .project-links {
   margin-top: 6px;
+  font-weight: bold;
+}
+
+/* Project detail page */
+
+.breadcrumb {
+  margin-bottom: 8px;
+  font-size: 11px;
+}
+
+.detail .content-intro {
+  margin-bottom: 16px;
+}
+
+.detail-shot {
+  max-width: 640px;
+}
+
+.detail-columns {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 24px;
+  align-items: start;
+  margin-top: 20px;
+}
+
+.detail-body {
+  max-width: 62ch;
+}
+
+.detail-heading {
+  margin: 0 0 4px;
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--navy);
+}
+
+.detail-body p + .detail-heading {
+  margin-top: 16px;
+}
+
+.detail-features {
+  padding-left: 22px;
+  list-style: square;
+}
+
+.detail-info {
+  margin-top: 8px;
+  font-family: var(--ui);
+  font-size: 11px;
+  background: var(--silver);
+}
+
+.detail-info dl {
+  margin: 0;
+}
+
+.detail-info dt {
+  font-weight: bold;
+}
+
+.detail-info dd {
+  margin: 0 0 8px;
+}
+
+.detail-info dd:last-child {
+  margin-bottom: 0;
+}
+
+.detail-pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 12px 0;
+  border-top: 2px groove var(--silver);
+}
+
+.not-found-links {
+  margin-top: 12px;
   font-weight: bold;
 }
 
@@ -626,6 +718,14 @@ hr {
 
   .project-thumb {
     max-width: 320px;
+  }
+
+  .detail-shot {
+    max-width: none;
+  }
+
+  .detail-columns {
+    grid-template-columns: 1fr;
   }
 
   .statusbar-zone {
