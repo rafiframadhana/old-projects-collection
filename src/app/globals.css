@@ -112,7 +112,7 @@ hr {
   flex: none;
   width: 14px;
   height: 14px;
-  background: url("/web.png") center / contain no-repeat;
+  background: url("/favicon.ico") center / contain no-repeat;
 }
 
 .titlebar-text {

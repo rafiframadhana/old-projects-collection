@@ -13,7 +13,7 @@ export const metadata = {
   },
   description:
     "Old projects collection: small web apps by Rafif Ramadhana, built while learning HTML, CSS, JavaScript and React.",
-  icons: { icon: "/web.png" },
+  icons: { icon: "/favicon.ico" },
 };
 
 export default async function RootLayout({ children }) {

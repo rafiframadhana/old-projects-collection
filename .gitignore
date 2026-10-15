@@ -28,3 +28,5 @@ next-env.d.ts
 *.sln
 *.sw?
 .qodo
+temp/
+
