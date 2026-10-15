@@ -6,8 +6,7 @@ function Projects({ projects }) {
       <h2 className="content-heading">My Projects</h2>
       <p className="content-intro">
         These are small web apps I built while learning HTML, CSS, JavaScript
-        and React. Click a picture to open the live site, or a title to read
-        more about the project.
+        and React. Click a picture or title to read more about a project.
       </p>
 
       <ul className="project-list">

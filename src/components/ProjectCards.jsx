@@ -6,10 +6,8 @@ export default function ProjectCard({ project, isNew }) {
 
   return (
     <li id={project.slug} className={isNew ? "project project--new" : "project"}>
-      <a
-        href={project.link}
-        target="_blank"
-        rel="noopener noreferrer"
+      <Link
+        href={detailHref}
         className="project-thumb"
         tabIndex={-1}
         aria-hidden="true"
@@ -20,7 +18,7 @@ export default function ProjectCard({ project, isNew }) {
           sizes="(max-width: 720px) 320px, 200px"
           priority={isNew}
         />
-      </a>
+      </Link>
 
       <div className="project-text">
         <h3 className="project-title">
@@ -32,7 +30,7 @@ export default function ProjectCard({ project, isNew }) {
           <b>Built with:</b> {project.stack.join(", ")}
         </p>
         <p className="project-links">
-          [ <Link href={detailHref}>Details</Link> ] [{" "}
+          [{" "}
           <a href={project.link} target="_blank" rel="noopener noreferrer">
             Live site
           </a>{" "}

@@ -14,7 +14,7 @@ const Navbar = ({ projectCount }) => {
         <p className="marquee-track">
           Welcome to my old projects collection! There are {projectCount}{" "}
           projects online. New this update: Amazon Clone and Clothing Store.
-          Click any picture to open the live site.
+          Click any picture to see the project details.
         </p>
       </div>
     </header>
