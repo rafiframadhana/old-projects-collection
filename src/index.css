@@ -1,33 +1,36 @@
 /*
- * Old Projects Collection: a homepage from around the year 2000.
- * Every color below is from the 216-color web-safe palette, except the
- * browser's own default link colors.
+ * Old Projects Collection: a homepage from around the year 2000, seen
+ * through Internet Explorer 5 on a Windows 98 desktop.
  */
 :root {
-  --tile: #336699;
-  --tile-dot: #2f5f8f;
-  --silver: #cccccc;
+  --desktop: #008080;
+  --silver: #c0c0c0;
+  --light: #dfdfdf;
   --shadow: #808080;
   --paper: #ffffff;
   --highlight: #ffffcc;
   --navy: #000080;
+  --title-end: #1084d0;
+  --night: #000033;
   --red: #ff0000;
+  --yellow: #ffff00;
   --led: #00ff00;
   --black: #000000;
 
   --link: #0000ee;
   --link-visited: #551a8b;
 
-  --serif: "Times New Roman", Times, serif;
+  --serif: Georgia, "Times New Roman", Times, serif;
   --sans: Verdana, Geneva, sans-serif;
-  --ui: Tahoma, Verdana, sans-serif;
+  --ui: Tahoma, "MS Sans Serif", Verdana, sans-serif;
   --mono: "Courier New", Courier, monospace;
 
-  /* Windows-classic raised edge */
+  /* Windows-classic raised and sunken edges */
   --bevel-out: inset -1px -1px var(--black), inset 1px 1px var(--paper),
-    inset -2px -2px var(--shadow), inset 2px 2px #dddddd;
+    inset -2px -2px var(--shadow), inset 2px 2px var(--light);
   --bevel-in: inset -1px -1px var(--paper), inset 1px 1px var(--black),
-    inset -2px -2px #dddddd, inset 2px 2px var(--shadow);
+    inset -2px -2px var(--light), inset 2px 2px var(--shadow);
+  --bevel-field: inset -1px -1px var(--paper), inset 1px 1px var(--shadow);
 }
 
 *,
@@ -47,12 +50,7 @@ body {
   font-size: 13px;
   line-height: 1.5;
   color: var(--black);
-  background-color: var(--tile);
-  background-image: repeating-conic-gradient(
-    var(--tile) 0 25%,
-    var(--tile-dot) 0 50%
-  );
-  background-size: 4px 4px;
+  background: var(--desktop);
 }
 
 a {
@@ -70,7 +68,7 @@ a:active {
 
 a:focus-visible,
 button:focus-visible {
-  outline: 2px dotted currentColor;
+  outline: 1px dotted currentColor;
   outline-offset: 2px;
 }
 
@@ -86,41 +84,173 @@ hr {
   margin: 0 0 12px;
 }
 
-/* Page: fixed width, designed for 800 x 600 */
+/* The browser window */
+
+.window {
+  max-width: 1280px;
+  margin: 24px auto;
+  width: calc(100% - 48px);
+  padding: 3px;
+  background: var(--silver);
+  box-shadow: var(--bevel-out);
+  font-family: var(--ui);
+  font-size: 11px;
+}
+
+.titlebar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 20px;
+  padding: 0 2px 0 3px;
+  background: linear-gradient(90deg, var(--navy), var(--title-end));
+  color: var(--paper);
+  font-weight: bold;
+}
+
+.titlebar-icon {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  background: url("/web.png") center / contain no-repeat;
+}
+
+.titlebar-text {
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.titlebar-buttons {
+  display: flex;
+  gap: 2px;
+}
+
+.titlebar-buttons span {
+  width: 16px;
+  height: 14px;
+  font-size: 11px;
+  line-height: 12px;
+  text-align: center;
+  color: var(--black);
+  background: var(--silver);
+  box-shadow: var(--bevel-out);
+}
+
+.titlebar-buttons span:last-child {
+  margin-left: 2px;
+}
+
+.menubar {
+  display: flex;
+  padding: 2px 0;
+  border-bottom: 1px solid var(--shadow);
+  box-shadow: 0 1px var(--paper);
+}
+
+.menubar span {
+  padding: 1px 6px;
+}
+
+.addressbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 4px 5px;
+}
+
+.addressbar-label {
+  color: var(--shadow);
+}
+
+.addressbar-field {
+  flex: 1;
+  min-width: 0;
+  padding: 2px 4px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  background: var(--paper);
+  box-shadow: var(--bevel-in);
+}
+
+.statusbar {
+  display: flex;
+  gap: 2px;
+  margin-top: 2px;
+}
+
+.statusbar-cell {
+  padding: 1px 6px;
+  box-shadow: var(--bevel-field);
+}
+
+.statusbar-main {
+  flex: 1;
+}
+
+.statusbar-zone {
+  width: 140px;
+}
+
+/* The page inside the window */
 
 .page {
-  max-width: 760px;
-  margin: 24px auto;
+  padding: 2px;
   background: var(--paper);
-  border: 3px outset var(--silver);
+  box-shadow: var(--bevel-in);
+  font-family: var(--sans);
+  font-size: 13px;
 }
 
 /* Banner */
 
 .banner-title {
-  padding: 18px 20px 14px;
-  background: linear-gradient(90deg, var(--navy) 0%, #3366cc 70%, #6699cc 100%);
-  color: var(--paper);
+  padding: 26px 22px 20px;
+  background-color: var(--night);
+  background-image: radial-gradient(1px 1px at 12% 30%, #ffffff 50%, transparent 51%),
+    radial-gradient(1px 1px at 33% 72%, #99ccff 50%, transparent 51%),
+    radial-gradient(1px 1px at 58% 22%, #ffffff 50%, transparent 51%),
+    radial-gradient(1px 1px at 71% 64%, #ffffff 50%, transparent 51%),
+    radial-gradient(1px 1px at 86% 38%, #99ccff 50%, transparent 51%),
+    radial-gradient(1px 1px at 94% 80%, #ffffff 50%, transparent 51%),
+    linear-gradient(180deg, var(--night) 40%, #003366 100%);
+  background-size: 180px 90px, 180px 90px, 180px 90px, 180px 90px, 180px 90px,
+    180px 90px, 100% 100%;
+  border-bottom: 2px solid var(--silver);
 }
 
 .banner-title h1 {
   font-family: var(--serif);
-  font-size: 40px;
+  font-size: 42px;
+  font-style: italic;
   font-weight: bold;
   line-height: 1.05;
-  letter-spacing: 0.01em;
-  text-shadow: 2px 2px 0 var(--black);
+  letter-spacing: -0.01em;
 }
 
+/* A chrome title, the way it used to come out of Photoshop 5 as a GIF */
 .banner-title h1 a,
 .banner-title h1 a:visited {
   color: var(--paper);
   text-decoration: none;
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #ccddff 45%,
+    #335599 52%,
+    #99bbee 75%,
+    #ffffff 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(2px 2px 0 var(--black));
 }
 
 .banner-title p {
-  margin-top: 4px;
-  font-style: italic;
+  margin-top: 6px;
   font-size: 12px;
   color: var(--highlight);
 }
@@ -128,7 +258,6 @@ hr {
 .marquee {
   overflow: hidden;
   background: var(--black);
-  border-top: 2px solid var(--silver);
   border-bottom: 2px solid var(--silver);
 }
 
@@ -138,38 +267,48 @@ hr {
   white-space: nowrap;
   font-weight: bold;
   font-size: 12px;
-  color: #ffff00;
+  color: var(--yellow);
 }
 
 /* Two columns, laid out like a table */
 
 .layout {
   display: grid;
-  grid-template-columns: 170px 1fr;
+  grid-template-columns: 172px 1fr;
 }
 
 .sidebar {
   background: var(--silver);
-  border-right: 2px inset var(--silver);
-  padding: 10px 8px 16px;
+  padding: 16px 8px 16px;
+  font-family: var(--ui);
+}
+
+/* Windows group boxes */
+.side-box {
+  position: relative;
+  padding: 12px 7px 8px;
+  border: 1px solid var(--shadow);
+  box-shadow: 1px 1px var(--paper), inset 1px 1px var(--paper);
 }
 
 .side-box + .side-box {
-  margin-top: 14px;
+  margin-top: 18px;
 }
 
 .side-heading {
-  font-family: var(--ui);
+  position: absolute;
+  top: -8px;
+  left: 6px;
+  padding: 0 3px;
   font-size: 11px;
-  font-weight: bold;
-  padding: 2px 6px;
-  background: var(--navy);
-  color: var(--paper);
+  font-weight: normal;
+  line-height: 15px;
+  background: var(--silver);
 }
 
 .side-buttons {
   list-style: none;
-  padding: 6px 0 0;
+  padding: 0;
   display: grid;
   gap: 4px;
 }
@@ -179,7 +318,8 @@ hr {
   display: block;
   padding: 4px 8px;
   font-family: var(--ui);
-  font-size: 12px;
+  font-size: 11px;
+  text-align: center;
   color: var(--black);
   text-decoration: none;
   background: var(--silver);
@@ -205,8 +345,9 @@ hr {
 
 .side-index {
   list-style: square;
-  margin: 6px 0 0;
+  margin: 0;
   padding: 6px 6px 6px 22px;
+  font-family: var(--sans);
   font-size: 11px;
   line-height: 1.6;
   background: var(--paper);
@@ -217,7 +358,6 @@ hr {
   display: flex;
   justify-content: center;
   gap: 2px;
-  margin-top: 6px;
   padding: 4px;
   background: var(--black);
   box-shadow: var(--bevel-in);
@@ -233,12 +373,13 @@ hr {
   text-align: center;
   color: var(--led);
   background: #003300;
+  text-shadow: 0 0 4px var(--led);
 }
 
 /* Content */
 
 .content {
-  padding: 14px 18px 4px;
+  padding: 16px 20px 4px;
 }
 
 .content-heading {
@@ -261,8 +402,8 @@ hr {
 .project {
   display: grid;
   grid-template-columns: 200px 1fr;
-  gap: 14px;
-  padding: 14px 0;
+  gap: 16px;
+  padding: 16px 0;
   border-bottom: 2px groove var(--silver);
   scroll-margin-top: 12px;
 }
@@ -282,6 +423,9 @@ hr {
 .project-thumb {
   display: block;
   align-self: start;
+  padding: 3px;
+  background: var(--silver);
+  box-shadow: var(--bevel-out);
 }
 
 .project-thumb img {
@@ -290,7 +434,7 @@ hr {
   height: auto;
   aspect-ratio: 1600 / 869;
   object-fit: cover;
-  border: 2px solid var(--link);
+  box-shadow: 0 0 0 1px var(--black);
 }
 
 .project-title {
@@ -327,8 +471,47 @@ hr {
   text-align: center;
 }
 
+/* 88 x 31 buttons */
+.badges {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.badge,
+.badge:visited {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 88px;
+  height: 31px;
+  font-family: var(--ui);
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1;
+  color: var(--yellow);
+  text-decoration: none;
+  background: linear-gradient(180deg, #333399, var(--navy));
+  border: 1px solid var(--black);
+  box-shadow: inset 1px 1px #6666cc;
+}
+
+.badge small {
+  font-size: 9px;
+  font-weight: normal;
+  color: var(--paper);
+}
+
+.badge:hover {
+  color: var(--paper);
+}
+
 .footer-small {
-  margin-top: 4px;
+  margin-top: 10px;
   font-size: 11px;
   color: var(--shadow);
 }
@@ -380,12 +563,39 @@ hr {
   }
 }
 
-/* Small screens: one column */
+/* Wide screens: two projects per row */
+
+@media (min-width: 1100px) {
+  .project-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 24px;
+  }
+
+  .project--new + .project:not(.project--new) {
+    margin-top: 0;
+    border-top: 0;
+  }
+
+  .project--new {
+    margin-bottom: 10px;
+  }
+}
+
+/* Small screens: one column, the window fills the screen */
 
 @media (max-width: 720px) {
-  .page {
+  .window {
+    width: auto;
     margin: 0;
-    border-width: 0 0 3px;
+  }
+
+  .menubar {
+    display: none;
+  }
+
+  .banner-title {
+    padding: 20px 16px 16px;
   }
 
   .banner-title h1 {
@@ -394,11 +604,6 @@ hr {
 
   .layout {
     grid-template-columns: 1fr;
-  }
-
-  .sidebar {
-    border-right: 0;
-    border-bottom: 2px inset var(--silver);
   }
 
   .side-buttons {
@@ -410,6 +615,10 @@ hr {
     column-gap: 24px;
   }
 
+  .content {
+    padding: 16px 16px 4px;
+  }
+
   .project {
     grid-template-columns: 1fr;
     gap: 10px;
@@ -417,5 +626,9 @@ hr {
 
   .project-thumb {
     max-width: 320px;
+  }
+
+  .statusbar-zone {
+    width: auto;
   }
 }
